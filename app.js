@@ -24,9 +24,24 @@ const dbRef = ref(db, '/TDS_Value');
 // Listen for changes to the data and update the UI automatically
 onValue(dbRef, (snapshot) => {
   const tdsValue = snapshot.val();  // Fetches the latest TDS value from Firebase
-  const timestamp = new Date().toLocaleString();  // Current timestamp
+  const timestamp = new Date().toLocaleString(); 
 
   // Update the TDS value in the webpage
   document.querySelector('.value').textContent = tdsValue + " ppm";
   document.querySelector('#timestamp').textContent = timestamp;
+
+  // Suggestion based on TDS value
+  let suggestion = "";
+  if (tdsValue < 50) {
+    suggestion = "Water quality is excellent. Enjoy your pure water!";
+  } else if (tdsValue >= 50 && tdsValue <= 150) {
+    suggestion = "Water quality is good, but consider a filter if needed.";
+  } else if (tdsValue > 150 && tdsValue <= 300) {
+    suggestion = "Water quality is average. It's recommended to use a water purifier.";
+  } else {
+    suggestion = "Water quality is poor. It is advisable to use a good water filter or purifier.";
+  }
+
+
+  document.querySelector('#suggestion-text').textContent = suggestion;
 });

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #68888181, #77a99f5e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.background {
+position: relative;
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+
+.background::before {
+content: '';
+position: absolute;
+top: -100px;
+left: -100px;
+width: 300px;
+height: 300px;
+background: rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+animation: float 6s infinite ease-in-out;
+}
+
+.background::after {
+content: '';
+position: absolute;
+bottom: -100px;
+right: -100px;
+width: 400px;
+height: 400px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 50%;
+animation: float 8s infinite ease-in-out reverse;
+}
+
+/* Cube-like side decorations */
+.cube-left, .cube-right {
+position: absolute;
+width: 60px;
+height: 60px;
+background: linear-gradient(135deg, #a2c6f3, #f1f3f5);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+transform: rotate(45deg) translate(0, 0);
+animation: spin 6s infinite ease-in-out, floatCube 8s infinite ease-in-out;
+}
+
+/* Left Cube */
+.cube-left {
+top: 30%;
+left: -8px;
+animation-delay: 0.5s;
+}
+
+/* Right Cube */
+.cube-right {
+bottom: 30%;
+right: -8px;
+animation-delay: 1s;
+}
+
+/* Cube Animations */
+@keyframes spin {
+0%, 100% {
+    transform: rotate(45deg) scale(1);
+}
+50% {
+    transform: rotate(360deg) scale(1.2);
+}
+}
+
+@keyframes floatCube {
+0%, 100% {
+    transform: translate(0, 0) rotate(45deg);
+}
+50% {
+    transform: translate(30px, -20px) rotate(45deg);
+}
+}
+
+.container {
+text-align: center;
+background-color: #ffffff;
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+width: 400px;
+position: absolute;
+top: 200px;
+left: 50%;
+transform: translate(-50%, 0);
+animation: moveToCenter 2s ease-out forwards;
+}
+
+h1 {
+font-size: 28px;
+margin-bottom: 20px;
+color: #333;
+text-transform: uppercase;
+letter-spacing: 1.2px;
+}
+
+.value {
+font-size: 42px;
+font-weight: bold;
+color: #28a745;
+margin: 10px 0;
+animation: pulse 1.5s infinite;
+}
+
+.last-updated {
+font-size: 14px;
+color: #6c757d;
+margin-top: 15px;
+}
+
+.card {
+background-color: #f1f3f5;
+border-radius: 12px;
+padding: 15px;
+margin-top: 15px;
+box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease;
+}
+
+.card:hover {
+transform: scale(1.05);
+}
+
+.suggestion {
+background-color: #f8f9fa;
+padding: 15px;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+margin-top: 10px;
+font-size: 16px;
+color: #495057;
+transition: background-color 0.3s ease;
+}
+
+.suggestion p {
+margin: 0;
+font-weight: 600;
+}
+
+@keyframes pulse {
+0%, 100% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+}
+}
+
+@keyframes moveToCenter {
+0% {
+    top: 200px;
+    opacity: 0;
+}
+100% {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+}
+
+.water-tank {
+background-color: #669089; 
+padding-right: 10rem;
+border-radius: 10px; 
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 0px;
+margin-bottom: 10px;
+transition: transform 0.3s ease;
+opacity: 1;
+}
+
+
+
+
+.water-tank h1 {
+font-size: 60px; 
+font-weight: bold;
+color: #fff;
+text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3); 
+margin: 0;
+letter-spacing: 1px; 
+}
+
